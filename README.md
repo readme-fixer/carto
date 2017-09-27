@@ -24,7 +24,7 @@ CartoCSS MML:
 
     {
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-        "Stylesheet": [{"id":"style.mss","data":"Map {\n  background-color: #fff;\n}\n\n#world {\n  line-color: #ccc;\n  line-width: 0.5;\n  polygon-fill: #eee;\n}"}],
+        "Stylesheet": [{"id":"style.mss","data":"Map {\n  background-color: #fff;\n}\n\n# world {\n  line-color: #ccc;\n  line-width: 0.5;\n  polygon-fill: #eee;\n}"}],
         "Layer": [{
             "id": "world",
             "name": "world",
@@ -64,7 +64,7 @@ In CSS, a certain object can only have one instance of a property. A `<div>` has
 
 Layers in Mapnik can have multiple [borders](http://trac.mapnik.org/wiki/LineSymbolizer) and multiple copies of other attributes. This ability is useful in drawing line outlines, like in the case of road borders or 'glow' effects around coasts. `CartoCSS` makes this accessible by allowing attachments to styles:
 
-    #world {
+    # world {
       line-color: #fff;
       line-width: 3;
       }
@@ -102,13 +102,13 @@ Instead of the name attribute of the [TextSymbolizer](http://trac.mapnik.org/wik
   <tr>
     <td valign='top'>
       <pre>
-#world NAME {
+# world NAME {
   text-face-name: "Arial";
 }</pre>
     </td>
     <td valign='top'>
       <pre>
-#world {
+# world {
   text-name: "NAME";
   text-face-name: "Arial";
 }</pre>
@@ -139,7 +139,7 @@ CartoCSS inherits from its basis in [less.js](http://lesscss.org/) some new feat
       background-color: @mybackground
     }
     
-    #world {
+    # world {
       polygon-fill: @mybackground + #222;
       line-color: darken(@mybackground, 10%);
     }
@@ -165,7 +165,7 @@ This can be a convenient way to group style changes by zoom level:
     [zoom > 1] {
       /* Applies to all layers at zoom > 1 */
       polygon-gamma: 0.3;
-      #world {
+      # world {
         polygon-fill: #323;
       }
       #lakes {
@@ -186,7 +186,7 @@ By defining multiple fonts in a `text-face-name` definition, you create [FontSet
     <tr>
     <td valign='top'>
 
-    <pre>#world {
+    <pre># world {
   text-name: "[NAME]";
   text-size: 11;
   text-face-name: "Georgia Regular", "Arial Italic";
@@ -216,17 +216,17 @@ CartoCSS supports a variety of filter styles:
 Numeric comparisons:
 
 ```
-#world[population > 100]
-#world[population < 100]
-#world[population >= 100]
-#world[population <= 100]
+# world[population > 100]
+# world[population < 100]
+# world[population >= 100]
+# world[population <= 100]
 ```
 
 General comparisons:
 
 ```
-#world[population = 100]
-#world[population != 100]
+# world[population = 100]
+# world[population != 100]
 ```
 
 
@@ -234,7 +234,7 @@ String comparisons:
 
 ```
 /* a regular expression over name */
-#world[name =~ "A.*"]
+# world[name =~ "A.*"]
 ```
 
 ## Developers
